@@ -55,14 +55,30 @@ MLX Studio is a complete desktop app for running LLMs, VLMs, and image generatio
 
 All releases are code-signed and notarized by Apple for macOS Gatekeeper. No Homebrew, no pip, no Xcode required.
 
-### Option 2: pip install (CLI only)
+### Option 2: CLI via pip (Engine Only)
+
+The vMLX inference engine is published on [PyPI as `vmlx`](https://pypi.org/project/vmlx/) -- same engine that powers the desktop app, available as a standalone CLI. This is real, published software with 1,894+ tests.
 
 ```bash
+# Recommended: use uv (fast, no venv hassle)
+brew install uv
+uv tool install vmlx
+vmlx serve mlx-community/Qwen3-8B-4bit
+
+# Or with pipx (isolates from system Python)
+brew install pipx
+pipx install vmlx
+vmlx serve mlx-community/Qwen3-8B-4bit
+
+# Or with pip in a virtual environment
+python3 -m venv ~/.vmlx-env && source ~/.vmlx-env/bin/activate
 pip install vmlx
 vmlx serve mlx-community/Qwen3-8B-4bit
 ```
 
-This gives you the inference engine without the GUI. See [vMLX on PyPI](https://pypi.org/project/vmlx/).
+> **Note:** On macOS 14+, `pip install vmlx` without a venv will fail with "externally-managed-environment". Use `uv`, `pipx`, or create a venv first.
+
+Once running, your local OpenAI-compatible API server is live at `http://localhost:8000`. Point any OpenAI or Anthropic SDK client at it.
 
 ---
 
