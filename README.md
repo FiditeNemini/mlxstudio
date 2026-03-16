@@ -13,12 +13,12 @@
 </p>
 
 <p align="center">
-  <a href="#download">Download</a> · <a href="#features">Features</a> · <a href="#api-server">API Server</a> · <a href="#jang-quantization">JANG</a> · <a href="#image-generation">Image Gen</a> · <a href="#build-from-source">Build</a>
+  <a href="#download">Download</a> · <a href="#features">Features</a> · <a href="#api-server">API Server</a> · <a href="#image-generation">Image Gen</a> · <a href="#tool-calling--agents">Tools</a> · <a href="#advanced-quantization">JANG</a> · <a href="#build-from-source">Build</a>
 </p>
 
 ---
 
-MLX Studio is a complete desktop app for running LLMs, VLMs, and image generation models locally on your Mac. No cloud, no API keys, no data leaving your machine. Built on [vMLX Engine](https://github.com/jjang-ai/vmlx) and Apple's [MLX](https://github.com/ml-explore/mlx) framework.
+MLX Studio is a complete desktop app for running LLMs, VLMs, and image generation models locally on your Mac. No cloud, no API keys, no data leaving your machine. Supports every model on [mlx-community](https://huggingface.co/mlx-community) — Qwen, Llama, Mistral, Gemma, Phi, DeepSeek, and more. Built on [vMLX Engine](https://github.com/jjang-ai/vmlx) and Apple's [MLX](https://github.com/ml-explore/mlx) framework.
 
 ---
 
@@ -26,7 +26,7 @@ MLX Studio is a complete desktop app for running LLMs, VLMs, and image generatio
 
 <table>
   <tr>
-    <td align="center"><img src="assets/chat-tab.png" width="450"><br><b>Chat with JANG Model</b><br><em>Qwen 3.5 35B MoE at 2.4 bits with thinking mode</em></td>
+    <td align="center"><img src="assets/chat-tab.png" width="450"><br><b>Chat Interface</b><br><em>Streaming conversations with thinking mode and code highlighting</em></td>
     <td align="center"><img src="assets/agentic-chat.png" width="450"><br><b>Agentic Coding</b><br><em>Full tool calling with file I/O, shell, and search</em></td>
   </tr>
   <tr>
@@ -34,11 +34,11 @@ MLX Studio is a complete desktop app for running LLMs, VLMs, and image generatio
     <td align="center"><img src="assets/image-tab.png" width="450"><br><b>Image Generation</b><br><em>Flux Schnell, Dev, Z-Image Turbo, Klein models</em></td>
   </tr>
   <tr>
-    <td align="center"><img src="assets/tools-tab.png" width="450"><br><b>Developer Tools</b><br><em>Convert models to MLX/JANG, inspect, diagnose</em></td>
-    <td align="center"><img src="assets/gguf-to-mlx.png" width="450"><br><b>Model Conversion</b><br><em>GGUF to MLX, JANG mixed-precision quantization</em></td>
+    <td align="center"><img src="assets/tools-tab.png" width="450"><br><b>Developer Tools</b><br><em>Convert, inspect, and diagnose models</em></td>
+    <td align="center"><img src="assets/gguf-to-mlx.png" width="450"><br><b>Model Conversion</b><br><em>GGUF to MLX and quantization tools</em></td>
   </tr>
   <tr>
-    <td align="center"><img src="assets/jangq-models.png" width="450"><br><b>JANGQ-AI Models</b><br><em>Pre-quantized JANG models on HuggingFace</em></td>
+    <td align="center"><img src="assets/jangq-models.png" width="450"><br><b>HuggingFace Model Browser</b><br><em>Search and download models directly in-app</em></td>
     <td align="center"><img src="assets/menu-bar.png" width="300"><br><b>Menu Bar</b><br><em>Quick controls always one click away</em></td>
   </tr>
 </table>
@@ -59,6 +59,17 @@ All releases are signed and notarized for macOS Gatekeeper.
 
 ## Features
 
+### Model Support
+
+Run any MLX model from HuggingFace — thousands of models ready to go:
+
+- **Text LLMs** — Qwen 2/2.5/3/3.5, Llama 3/3.1/3.2/3.3/4, Mistral/Mixtral, Gemma 3, Phi-4, DeepSeek, GLM-4, Nemotron, and any mlx-lm model
+- **Vision LLMs** — Qwen-VL, Qwen3.5-VL, Pixtral, InternVL, LLaVA, Gemma 3n
+- **MoE Models** — Qwen 3.5 MoE, Mixtral, DeepSeek V2/V3, MiniMax M2.5, Llama 4
+- **Hybrid SSM** — Nemotron-H, Jamba, GatedDeltaNet (Mamba + Attention)
+- **Image Gen** — Flux Schnell/Dev, Z-Image Turbo, Flux Klein (via mflux)
+- **Audio** — Kokoro TTS, Whisper STT (via mlx-audio)
+
 ### Chat & Conversation
 - Multi-turn streaming conversations with markdown + code highlighting
 - **Reasoning mode** — collapsible thinking blocks for Qwen3, DeepSeek-R1, GLM-Z1, Phi-4
@@ -74,7 +85,7 @@ All releases are signed and notarized for macOS Gatekeeper.
 
 ### API Server
 - **OpenAI compatible**: `/v1/chat/completions`, `/v1/responses`, `/v1/completions`
-- **Anthropic compatible**: `/v1/messages` — use as a Claude replacement
+- **Anthropic compatible**: `/v1/messages` — use as a drop-in replacement for Claude
 - **Image generation**: `/v1/images/generations` — OpenAI format
 - Embeddings, reranking, audio (TTS/STT)
 - Copy-pasteable code snippets for curl, Python, JavaScript
@@ -82,7 +93,7 @@ All releases are signed and notarized for macOS Gatekeeper.
 ### Image Generation
 - Flux Schnell (4 steps, fast), Dev (20 steps, quality)
 - Z-Image Turbo, Flux Klein 4B/9B
-- Prompt → image in the app or via API
+- Prompt to image in the app or via API
 - Gallery with save, history, and settings
 
 ### 5-Layer Caching Engine
@@ -92,19 +103,10 @@ All releases are signed and notarized for macOS Gatekeeper.
 - Hybrid SSM support (Mamba + Attention models)
 - Automatic cache type selection based on model architecture
 
-### JANG Quantization
-- Adaptive mixed-precision: attention gets more bits, MLP gets fewer
-- **2-bit JANG matches 4-bit uniform** on many models
-- 73% MMLU on Qwen3.5-122B at 2.4 bits average
-- Stays quantized in GPU memory (like GGUF for MLX)
-- Convert in-app or via CLI: `vmlx convert model --jang-profile JANG_3M`
-- Pre-quantized models: [JANGQ-AI on HuggingFace](https://huggingface.co/JANGQ-AI)
-
 ### Model Management
 - HuggingFace browser — search, download, install models in-app
 - Text/Image model filter in download search
 - Model directory scanner with deduplication
-- JANG model detection and badge display
 - Session start/stop/configure from dashboard
 
 ### Desktop Experience
@@ -113,6 +115,19 @@ All releases are signed and notarized for macOS Gatekeeper.
 - Dock icon restore on click
 - Close-to-tray support
 - Multi-session: run multiple models on different ports
+
+---
+
+## Advanced Quantization
+
+MLX Studio supports standard MLX quantization (4-bit, 8-bit) as well as **JANG adaptive mixed-precision** — an advanced format that assigns different bit widths to different layer types for better quality at the same model size.
+
+- Convert in-app or via CLI: `vmlx convert model --jang-profile JANG_3M`
+- Pre-quantized models available at [JANGQ-AI on HuggingFace](https://huggingface.co/JANGQ-AI)
+- Stays quantized in GPU memory — native MLX `QuantizedLinear` + `quantized_matmul`
+- Compatible with all caching layers (prefix, paged, disk, KV quant)
+
+See the [vMLX source repo](https://github.com/jjang-ai/vmlx#advanced-quantization) for profiles and conversion details.
 
 ---
 
@@ -162,7 +177,7 @@ npx electron-builder --mac dmg     # DMG
 |---|---|
 | **Source Code** | [github.com/jjang-ai/vmlx](https://github.com/jjang-ai/vmlx) |
 | **PyPI** | [pypi.org/project/vmlx](https://pypi.org/project/vmlx/) |
-| **JANG Models** | [huggingface.co/JANGQ-AI](https://huggingface.co/JANGQ-AI) |
+| **MLX Models** | [huggingface.co/mlx-community](https://huggingface.co/mlx-community) |
 | **Website** | [vmlx.net](https://vmlx.net) |
 
 ---
