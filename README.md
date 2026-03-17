@@ -43,6 +43,8 @@
 
 MLX Studio is a complete desktop app for running LLMs, VLMs, and image generation models locally on your Mac. No cloud, no API keys, no data leaving your machine. Supports every model on [mlx-community](https://huggingface.co/mlx-community) -- Qwen, Llama, Mistral, Gemma, Phi, DeepSeek, and thousands more. Built on [vMLX Engine](https://github.com/jjang-ai/vmlx) and Apple's [MLX](https://github.com/ml-explore/mlx) framework.
 
+> **JANG 2-bit beats MLX 4-bit, 3-bit, and 2-bit** — Our adaptive mixed-precision quantization (JANG\_2S, JANG\_2.6) outperforms standard MLX quantization on MiniMax M2.5, Qwen3, and other models. Check benchmark scores at [jangq.ai](https://jangq.ai) and try MiniMax M2.5 with MLX Studio. Pre-quantized models on [JANGQ-AI](https://huggingface.co/JANGQ-AI).
+
 ---
 
 ## Install
@@ -393,6 +395,8 @@ Apache License 2.0
 ### MLX Studio — Apple Silicon을 위한 네이티브 macOS AI 앱
 
 Mac에서 LLM, VLM, 이미지 생성 및 편집 모델을 완전히 로컬로 실행하세요.
+
+> **JANG 2비트가 MLX 4/3/2비트보다 높은 성능** — 적응형 혼합 정밀도 양자화(JANG\_2S, JANG\_2.6)가 MiniMax M2.5, Qwen3 등에서 표준 MLX 양자화를 능가합니다. [jangq.ai](https://jangq.ai)에서 벤치마크 확인. [JANGQ-AI](https://huggingface.co/JANGQ-AI)에서 사전 양자화 모델 다운로드.
 
 **설치:** [최신 DMG 다운로드](https://github.com/jjang-ai/mlxstudio/releases/latest) — 드래그 앤 드롭으로 설치.
 
