@@ -101,7 +101,7 @@ That's it. The app manages the entire Python engine, model downloads, and server
     <td align="center"><img src="assets/agentic-chat.png" width="450"><br><b>Agentic Coding</b><br><em>Full tool calling with file I/O, shell execution, and web search</em></td>
   </tr>
   <tr>
-    <td align="center"><img src="assets/image-tab.png" width="450"><br><b>Image Generation</b><br><em>Flux Schnell, Dev, Z-Image Turbo, and Klein models</em></td>
+    <td align="center"><img src="assets/image-tab.png" width="450"><br><b>Image Generation & Editing</b><br><em>Flux Schnell, Dev, Z-Image Turbo, Klein + Qwen Image Edit</em></td>
     <td align="center"><img src="assets/anthropic-api.png" width="450"><br><b>Anthropic API Compatible</b><br><em>Drop-in /v1/messages endpoint for Anthropic SDK clients</em></td>
   </tr>
   <tr>
@@ -126,7 +126,8 @@ Run any MLX model from HuggingFace -- thousands of models, zero configuration:
 - **Vision LLMs (VL)** -- Qwen-VL, Qwen2.5-VL, Qwen3.5-VL, Pixtral, InternVL, LLaVA, Gemma 3n, Phi-3-Vision -- send images and video directly in chat
 - **Mixture-of-Experts** -- Qwen 3.5 MoE, Mixtral 8x7B/8x22B, DeepSeek V2/V3, MiniMax M2.5, Llama 4 Scout/Maverick
 - **Hybrid SSM Models** -- Nemotron-H, Jamba, GatedDeltaNet (Mamba + Attention architectures with dedicated hybrid cache)
-- **Image Generation** -- Flux Schnell/Dev/Kontext/Krea, Z-Image Turbo, Flux Klein 4B/9B (via mflux)
+- **Image Generation** -- Flux Schnell/Dev, Z-Image Turbo, FLUX.2 Klein 4B/9B (via mflux)
+- **Image Editing** -- Qwen Image Edit (instruction-based editing, full precision)
 - **Audio** -- Kokoro TTS, Whisper STT, Qwen3-Audio (via mlx-audio)
 - **JANG Models** -- Adaptive mixed-precision quantized models from [JANGQ-AI](https://huggingface.co/JANGQ-AI), stay quantized in GPU memory via native `QuantizedLinear`
 - **GGUF Import** -- Convert GGUF models to MLX format directly in-app
@@ -380,4 +381,30 @@ Apache License 2.0
 
 <p align="center">
   Built by <a href="https://github.com/jjang-ai">Jinho Jang</a> &bull; <a href="mailto:eric@jangq.ai">eric@jangq.ai</a> &bull; <a href="https://jangq.ai">JANGQ AI</a>
+</p>
+
+---
+
+## 한국어 (Korean)
+
+### MLX Studio — Apple Silicon을 위한 네이티브 macOS AI 앱
+
+Mac에서 LLM, VLM, 이미지 생성 및 편집 모델을 완전히 로컬로 실행하세요.
+
+**설치:** [최신 DMG 다운로드](https://github.com/jjang-ai/mlxstudio/releases/latest) — 드래그 앤 드롭으로 설치.
+
+### 주요 기능
+
+| 기능 | 설명 |
+|------|------|
+| **채팅** | 대화 인터페이스, 도구 호출, 에이전트 코딩 |
+| **이미지 생성** | Flux Schnell/Dev, Z-Image Turbo, FLUX.2 Klein |
+| **이미지 편집** | Qwen Image Edit (텍스트 지시 기반 편집) |
+| **5단계 캐싱** | 프리픽스, 페이지드, KV 양자화, 디스크 캐시 |
+| **API 서버** | OpenAI + Anthropic 호환 API |
+| **30개 도구** | 파일, 웹 검색, Git, 터미널 내장 도구 |
+
+<p align="center">
+  개발자: <a href="https://github.com/jjang-ai">장진호</a> (eric@jangq.ai)<br>
+  <a href="https://jangq.ai">JANGQ AI</a>
 </p>
