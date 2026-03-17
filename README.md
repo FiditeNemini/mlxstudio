@@ -14,6 +14,7 @@
   <img src="https://img.shields.io/badge/Platform-macOS%20ARM64-lightgrey?style=flat-square&logo=apple" alt="Platform">
   <a href="https://pypi.org/project/vmlx/"><img src="https://img.shields.io/pypi/v/vmlx?style=flat-square&label=vMLX%20Engine&color=%234B8BBE&logo=python&logoColor=white" alt="PyPI"></a>
   <a href="https://github.com/jjang-ai/mlxstudio/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-Apache%202.0-orange?style=flat-square" alt="License"></a>
+  <a href="https://ko-fi.com/jangml"><img src="https://img.shields.io/badge/Support-Ko--fi-FF5E5B?style=flat-square&logo=ko-fi&logoColor=white" alt="Ko-fi"></a>
 </p>
 
 <p align="center">
@@ -34,7 +35,8 @@
   <a href="#image-generation">Image Generation</a> &bull;
   <a href="#advanced-quantization">JANG Quantization</a> &bull;
   <a href="#system-requirements">Requirements</a> &bull;
-  <a href="#build-from-source">Build</a>
+  <a href="#build-from-source">Build</a> &bull;
+  <a href="#한국어-korean">한국어</a>
 </p>
 
 ---
@@ -140,6 +142,7 @@ Every session launches a full API server. Point any OpenAI SDK client at your lo
 - `POST /v1/responses` -- OpenAI Responses API (agentic format) with streaming
 - `POST /v1/completions` -- Text completions
 - `POST /v1/images/generations` -- Image generation (Flux/Z-Image models, OpenAI format with `usage` field)
+- `POST /v1/images/edits` -- Image editing (Qwen Image Edit, instruction-based)
 - `POST /v1/embeddings` -- Text embeddings with dimension control and batch processing
 - `POST /v1/rerank` -- Document reranking
 - `POST /v1/audio/speech` -- Text-to-speech (Kokoro TTS)
@@ -380,7 +383,7 @@ Apache License 2.0
 ---
 
 <p align="center">
-  Built by <a href="https://github.com/jjang-ai">Jinho Jang</a> &bull; <a href="mailto:eric@jangq.ai">eric@jangq.ai</a> &bull; <a href="https://jangq.ai">JANGQ AI</a>
+  Built by <a href="https://github.com/jjang-ai">Jinho Jang</a> &bull; <a href="mailto:eric@jangq.ai">eric@jangq.ai</a> &bull; <a href="https://jangq.ai">JANGQ AI</a> &bull; <a href="https://ko-fi.com/jangml">Support on Ko-fi</a>
 </p>
 
 ---
@@ -406,5 +409,6 @@ Mac에서 LLM, VLM, 이미지 생성 및 편집 모델을 완전히 로컬로 �
 
 <p align="center">
   개발자: <a href="https://github.com/jjang-ai">장진호</a> (eric@jangq.ai)<br>
-  <a href="https://jangq.ai">JANGQ AI</a>
+  <a href="https://jangq.ai">JANGQ AI</a> &bull;
+  <a href="https://ko-fi.com/jangml">Ko-fi로 후원하기</a>
 </p>
