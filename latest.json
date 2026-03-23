@@ -1,1 +1,1 @@
-{"version":"1.3.9","url":"https://github.com/jjang-ai/mlxstudio/releases/tag/v1.3.9","notes":"Mistral 4 MLA+MoE full support, prefix cache fix for all thinking models, 20 fixes"}
+{"version":"1.3.10","url":"https://github.com/jjang-ai/mlxstudio/releases/download/v1.3.10/vMLX-1.3.10-arm64.dmg","notes":"L2 disk cache disabled (fixes corruption/short responses), OpenCode compat, Mistral 4 tool calling fix"}
