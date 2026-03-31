@@ -1,1 +1,1 @@
-{"version":"1.3.21","url":"https://github.com/jjang-ai/mlxstudio/releases/download/v1.3.21/vMLX-1.3.21-arm64.dmg","notes":"Complete 127.0.0.1 default across all UI and backend. SSM cache fix. MLA two-pass detection. Enable thinking defaults Off."}
+{"version":"1.3.22","url":"https://github.com/jjang-ai/mlxstudio/releases/download/v1.3.22/vMLX-1.3.22-arm64.dmg","notes":"Client disconnect crash fix, HF auto-download, gateway wake-from-sleep, disk cache on by default, build assets for source builds"}
