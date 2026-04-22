@@ -1,5 +1,5 @@
 {
-  "version": "1.3.76",
-  "url": "https://github.com/jjang-ai/mlxstudio/releases/tag/v1.3.76",
-  "notes": "Hybrid SSM cache poisoning fix: is_complete=False entries (captured post-gpl-prefill, state does not match key) now rejected on fetch — repeat-identical prompts on Qwen3.6-JANGTQ/MiniMax/Nemotron no longer produce <think></think> loops. Slower first re-hit (full re-prefill) but correct; LLM scheduler async rederive path remains the fast warm route for long sessions."
+  "version": "1.3.77",
+  "url": "https://github.com/jjang-ai/mlxstudio/releases/tag/v1.3.77",
+  "notes": "MLLM async SSM re-derive: ports LLM scheduler's clean-prefill watcher to hybrid VLMs (Qwen3.5-VL, Qwen3.6-JANGTQ). After T1 cold, idle tick runs a clean prompt-only forward pass and stores is_complete=True state so T2 identical prompt hits with KV+SSM both reused. Verified: T2 VLM HYBRID cache HIT: 11 cached (KV+SSM). 5-turn growing-context cache scales cleanly. 865 tests green."
 }
