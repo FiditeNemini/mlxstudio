@@ -1,19 +1,19 @@
 {
-  "version": "1.6.24",
-  "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.24/vMLX-1.6.24-tahoe-arm64.dmg",
-  "sha256": "9ff7a841e933074fe44e353318e4eeeb9b3a44f3cad9308d70df0d191fcf233b",
-  "sha512": "jM81f6d/CqKcVVks1cuXZ5m7QwkX2qcuN07HjvVYHYr1Bv+mYpvrzPLQZ9Q2b/4dkafdYUxLDZd7WAFI7JDc1g==",
+  "version": "1.6.25",
+  "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.25/vMLX-1.6.25-tahoe-arm64.dmg",
+  "sha256": "f80d17325aeddb695c6d3edd2ce519b1d8dc74580298a1da42eb691eca43942f",
+  "sha512": "ITxh9+O0hjnOybffae8swPfP20deA/SWvus0mkO94UL77avWUuD1XV4/gXrjAkTtQpj1QgCekL8qUNHiDSAZHg==",
   "downloads": {
     "sequoia": {
-      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.24/vMLX-1.6.24-sequoia-arm64.dmg",
-      "sha256": "f169fd27026d29d41114531f033f88856309ca69024b5f4afa8c6b7f5c5309f8",
-      "sha512": "vhfBojK4hfpyMVER+MGwCWg4wHxhxvp3NOy3UcBZcFW6cqW0V6l07Onb7JSKRRmk6yk0uRGL0FkMUu2UXmrYvg=="
+      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.25/vMLX-1.6.25-sequoia-arm64.dmg",
+      "sha256": "836805ba817f3d285835b981783c7838dd228b5629333e42cb5f1ef00b462bad",
+      "sha512": "08CiWWxTpmujGyqn6vfzBLSnxNsy6tSfe1wvuUE7uYl02tCe3opJnLMOv9m8DqaOd0zeQXAf7VCkkdz639z+/g=="
     },
     "tahoe": {
-      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.24/vMLX-1.6.24-tahoe-arm64.dmg",
-      "sha256": "9ff7a841e933074fe44e353318e4eeeb9b3a44f3cad9308d70df0d191fcf233b",
-      "sha512": "jM81f6d/CqKcVVks1cuXZ5m7QwkX2qcuN07HjvVYHYr1Bv+mYpvrzPLQZ9Q2b/4dkafdYUxLDZd7WAFI7JDc1g=="
+      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.25/vMLX-1.6.25-tahoe-arm64.dmg",
+      "sha256": "f80d17325aeddb695c6d3edd2ce519b1d8dc74580298a1da42eb691eca43942f",
+      "sha512": "ITxh9+O0hjnOybffae8swPfP20deA/SWvus0mkO94UL77avWUuD1XV4/gXrjAkTtQpj1QgCekL8qUNHiDSAZHg=="
     }
   },
-  "notes": "## vMLX 1.6.24 for macOS\n\nBuilt from source commit `2121e57fc`.\n\n### Highlights\n\n- Long DeepSeek V4 Flash generations no longer crash the engine. Metal caps the NUMBER of live buffers, not just their bytes, and the output guard only modelled bytes \u2014 so it allowed budgets the model could not survive. It now projects that ceiling too and refuses or clamps up front. Architectures measured at zero retained buffers per token are left uncapped, so nothing else is affected.\n- DeepSeek V4 Flash answers again at small output budgets; anything under 512 tokens previously came back empty.\n- The chat Max Tokens field shows the budget actually in force instead of sitting blank.\n\nSeparate signed and Apple-notarized Apple-silicon downloads are available for macOS Tahoe and Sequoia-compatible systems. Tahoe is the default download."
+  "notes": "## vMLX 1.6.25 for macOS\n\nBuilt from source commit `81f90bbb3`.\n\n### Highlights\n\n- DeepSeek V4 Flash long-context prompt processing is dramatically faster: a new indexed-attention prefill kernel (on by default) lifts prefill from 347 to ~449 tokens/s at 15k context (+29%) and from 199 to ~316 tokens/s at 40k (+58%), with decode holding 33+ tokens/s sustained.\n- Aborting and retrying a long prompt is no longer a cold start — the engine rewinds the live KV cache to the shared prefix, dropping retry time-to-first-token at 15k context from 46s to 2.3s.\n- Extreme context lengths fail honestly instead of crashing: the engine advertises the true hardware ceiling at startup, shrinks prefill chunks adaptively under Metal memory pressure, and refuses over-ceiling requests with a clean error instead of a Metal OOM.\n- A prompt that is too long now shows a clear in-chat message instead of a raw error dialog, and an oversized message no longer poisons every later turn of that conversation.\n- Fixes for stripped-vision-tower checkpoints, hybrid SSM stream completion, VLM JANG quantization module selection, Laguna-S-2.1-JANG_4M loading, disk (L2) cache stale-index and fingerprint poisoning, auto-sleep firing mid-generation, and frozen relative timestamps.\n\nSeparate signed and Apple-notarized Apple-silicon downloads are available for macOS Tahoe and Sequoia-compatible systems. Tahoe is the default download."
 }
