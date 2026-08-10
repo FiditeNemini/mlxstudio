@@ -1,19 +1,19 @@
 {
-  "version": "1.6.25",
-  "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.25/vMLX-1.6.25-tahoe-arm64.dmg",
-  "sha256": "f80d17325aeddb695c6d3edd2ce519b1d8dc74580298a1da42eb691eca43942f",
-  "sha512": "ITxh9+O0hjnOybffae8swPfP20deA/SWvus0mkO94UL77avWUuD1XV4/gXrjAkTtQpj1QgCekL8qUNHiDSAZHg==",
-  "downloads": {
-    "sequoia": {
-      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.25/vMLX-1.6.25-sequoia-arm64.dmg",
-      "sha256": "836805ba817f3d285835b981783c7838dd228b5629333e42cb5f1ef00b462bad",
-      "sha512": "08CiWWxTpmujGyqn6vfzBLSnxNsy6tSfe1wvuUE7uYl02tCe3opJnLMOv9m8DqaOd0zeQXAf7VCkkdz639z+/g=="
+    "version": "1.6.26",
+    "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.26/vMLX-1.6.26-tahoe-arm64.dmg",
+    "sha256": "b4f6ddfd12837523ca16db4e13f5c4dc88ee1e0951a7137dbb1c46a1fb1576f3",
+    "sha512": "e1F3iocpmPs8mhN9LhXZvA6eMnuOA1cRiEbDVupT//ZXrFkWkgh3JdGpVpbWZBuKfaFfNkZkJFkt2M9xLZK8zA==",
+    "downloads": {
+        "sequoia": {
+            "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.26/vMLX-1.6.26-sequoia-arm64.dmg",
+            "sha256": "3fe81e701ed1c0abcaad06264ac78f109bc8a7fd25e5f883d2b792a7a319463e",
+            "sha512": "TBc8q2GmWC4DcueAPtSTN6qHYmMeOg2K6SpS7x41nrWFfwsF3NBzkiaPdEbMANuoOxu7FbUD3OZrfKk4+HDUwA=="
+        },
+        "tahoe": {
+            "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.26/vMLX-1.6.26-tahoe-arm64.dmg",
+            "sha256": "b4f6ddfd12837523ca16db4e13f5c4dc88ee1e0951a7137dbb1c46a1fb1576f3",
+            "sha512": "e1F3iocpmPs8mhN9LhXZvA6eMnuOA1cRiEbDVupT//ZXrFkWkgh3JdGpVpbWZBuKfaFfNkZkJFkt2M9xLZK8zA=="
+        }
     },
-    "tahoe": {
-      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.25/vMLX-1.6.25-tahoe-arm64.dmg",
-      "sha256": "f80d17325aeddb695c6d3edd2ce519b1d8dc74580298a1da42eb691eca43942f",
-      "sha512": "ITxh9+O0hjnOybffae8swPfP20deA/SWvus0mkO94UL77avWUuD1XV4/gXrjAkTtQpj1QgCekL8qUNHiDSAZHg=="
-    }
-  },
-  "notes": "## vMLX 1.6.25 for macOS\n\nBuilt from source commit `81f90bbb3`.\n\n### Highlights\n\n- DeepSeek V4 Flash long-context prompt processing is dramatically faster: a new indexed-attention prefill kernel (on by default) lifts prefill from 347 to ~449 tokens/s at 15k context (+29%) and from 199 to ~316 tokens/s at 40k (+58%), with decode holding 33+ tokens/s sustained.\n- Aborting and retrying a long prompt is no longer a cold start — the engine rewinds the live KV cache to the shared prefix, dropping retry time-to-first-token at 15k context from 46s to 2.3s.\n- Extreme context lengths fail honestly instead of crashing: the engine advertises the true hardware ceiling at startup, shrinks prefill chunks adaptively under Metal memory pressure, and refuses over-ceiling requests with a clean error instead of a Metal OOM.\n- A prompt that is too long now shows a clear in-chat message instead of a raw error dialog, and an oversized message no longer poisons every later turn of that conversation.\n- Fixes for stripped-vision-tower checkpoints, hybrid SSM stream completion, VLM JANG quantization module selection, Laguna-S-2.1-JANG_4M loading, disk (L2) cache stale-index and fingerprint poisoning, auto-sleep firing mid-generation, and frozen relative timestamps.\n\nSeparate signed and Apple-notarized Apple-silicon downloads are available for macOS Tahoe and Sequoia-compatible systems. Tahoe is the default download."
+    "notes": "## vMLX 1.6.26 for macOS\n\nBuilt from source commit `980ec812f`.\n\n### Highlights\n\n- Health polling no longer stalls generation. While a model is generating, the health endpoint returns the last idle-time snapshot with live status and queue overlays instead of rebuilding its full diagnostics on every poll — removing a 330–410 ms pause per poll from the decode thread. Because that handler is model-agnostic, sustained decoding is smoother for every family (Qwen, Ornith and Bonsai bases, Gemma, MiniMax, Laguna, Step, DeepSeek V4 Flash).\n- DeepSeek V4 Flash long-context, long-output decoding is smooth. The extended-store KV delta chain now batches its per-256-token snapshot into a single asynchronous materialization instead of a few hundred blocking evaluations on the decode thread — a 15k-context, 2,048-token generation is now stall-free in every window, with cross-turn cache reuse unchanged and verified.\n\nSeparate signed and Apple-notarized Apple-silicon downloads are available for macOS Tahoe and Sequoia-compatible systems. Tahoe is the default download."
 }
