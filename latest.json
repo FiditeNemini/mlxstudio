@@ -1,19 +1,19 @@
 {
-    "version": "1.6.26",
-    "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.26/vMLX-1.6.26-tahoe-arm64.dmg",
-    "sha256": "b4f6ddfd12837523ca16db4e13f5c4dc88ee1e0951a7137dbb1c46a1fb1576f3",
-    "sha512": "e1F3iocpmPs8mhN9LhXZvA6eMnuOA1cRiEbDVupT//ZXrFkWkgh3JdGpVpbWZBuKfaFfNkZkJFkt2M9xLZK8zA==",
-    "downloads": {
-        "sequoia": {
-            "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.26/vMLX-1.6.26-sequoia-arm64.dmg",
-            "sha256": "3fe81e701ed1c0abcaad06264ac78f109bc8a7fd25e5f883d2b792a7a319463e",
-            "sha512": "TBc8q2GmWC4DcueAPtSTN6qHYmMeOg2K6SpS7x41nrWFfwsF3NBzkiaPdEbMANuoOxu7FbUD3OZrfKk4+HDUwA=="
-        },
-        "tahoe": {
-            "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.26/vMLX-1.6.26-tahoe-arm64.dmg",
-            "sha256": "b4f6ddfd12837523ca16db4e13f5c4dc88ee1e0951a7137dbb1c46a1fb1576f3",
-            "sha512": "e1F3iocpmPs8mhN9LhXZvA6eMnuOA1cRiEbDVupT//ZXrFkWkgh3JdGpVpbWZBuKfaFfNkZkJFkt2M9xLZK8zA=="
-        }
+  "version": "1.6.27",
+  "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.27/vMLX-1.6.27-tahoe-arm64.dmg",
+  "sha256": "852870766f10ba75329ff46376cbe665013b8cdfab95e1ffd6553daee1fca677",
+  "sha512": "9V9KwJ+8lvoYKKRWW59S8SmNSlD/11MF4wQrllAtr1YyXO7DqrnNHStLqpcDa9Ls30sTBeKv2+pWAHsbLf/7Ww==",
+  "downloads": {
+    "sequoia": {
+      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.27/vMLX-1.6.27-sequoia-arm64.dmg",
+      "sha256": "d5e0bdb220bddb1d430a22bf0b5060349a07cca516cd143c884714b329a157d9",
+      "sha512": "88Mp79z2vXQWy5zo67N/bkPT1mLytH+g6kpNYI2cnlbXfd55rfwA+qdSYHdLvD96W60kpskuwqBuVV5mWhITnQ=="
     },
-    "notes": "## vMLX 1.6.26 for macOS\n\nBuilt from source commit `980ec812f`.\n\n### Highlights\n\n- Health polling no longer stalls generation. While a model is generating, the health endpoint returns the last idle-time snapshot with live status and queue overlays instead of rebuilding its full diagnostics on every poll — removing a 330–410 ms pause per poll from the decode thread. Because that handler is model-agnostic, sustained decoding is smoother for every family (Qwen, Ornith and Bonsai bases, Gemma, MiniMax, Laguna, Step, DeepSeek V4 Flash).\n- DeepSeek V4 Flash long-context, long-output decoding is smooth. The extended-store KV delta chain now batches its per-256-token snapshot into a single asynchronous materialization instead of a few hundred blocking evaluations on the decode thread — a 15k-context, 2,048-token generation is now stall-free in every window, with cross-turn cache reuse unchanged and verified.\n\nSeparate signed and Apple-notarized Apple-silicon downloads are available for macOS Tahoe and Sequoia-compatible systems. Tahoe is the default download."
+    "tahoe": {
+      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.27/vMLX-1.6.27-tahoe-arm64.dmg",
+      "sha256": "852870766f10ba75329ff46376cbe665013b8cdfab95e1ffd6553daee1fca677",
+      "sha512": "9V9KwJ+8lvoYKKRWW59S8SmNSlD/11MF4wQrllAtr1YyXO7DqrnNHStLqpcDa9Ls30sTBeKv2+pWAHsbLf/7Ww=="
+    }
+  },
+  "notes": "## vMLX 1.6.27 for macOS\n\nA new flagship model family with vision and video, a prefix cache that finally uses the capacity it advertises, and a set of API-fidelity fixes \u2014 on top of the decoding-speed rollup from 1.6.26.\n\n### Muse Glimmer 30B \u2014 vision, video, and real reasoning controls\n\nMuse Glimmer 30B runs end to end: its text tower, its windowed vision tower, its recipient-routed reasoning rail, and its ATEM tool dialect. All three bundles (JANG_2D / 4M / 6M) are supported.\n\n- **Vision:** single- and multi-image prompts are described correctly \u2014 a red circle and a blue square in the same turn are named as such.\n- **Video:** clips are read in temporal order \u2014 a clip that fades from red to blue is answered \"red blue\", not the reverse.\n- **Reasoning depth is now adjustable from the app.** Chat Settings previously offered only the Auto/On thinking toggle for this family, so the four depths the model actually has were unreachable. It now shows **Low / Medium / High / Extra High**, and changing the setting measurably changes how much the model thinks.\n\n### The prefix cache now uses the capacity it advertises\n\n- **A long prompt no longer falls off the end of the cache.** Sessions were created with an index that addressed only about 64,000 tokens, so a longer conversation could report no reuse at all on an exact repeat \u2014 and run slower than starting cold. The index now covers 262,144 tokens, and existing sessions are migrated automatically.\n- **Vision models no longer run a slower cache path in the app than on the command line.** The app could disable paged RAM for a model that the engine expected to run paged, silently costing reuse. The two now agree, and the migration meant to correct existing sessions \u2014 which never actually ran, yet marked those sessions as already migrated \u2014 is fixed.\n\nChanging reasoning depth mid-conversation keeps its own cache lineage: each depth reuses its own chain, and switching back to a previous depth picks that chain up again rather than starting over.\n\n### API fidelity\n\n- **Anthropic `thinking.budget_tokens` now caps the reasoning chain.** It previously set only a template hint that no runtime consumed, so the budget did nothing.\n- **Ollama `think` string levels now work.** Clients sending `think: \"low\" | \"medium\" | \"high\"` were silently ignored \u2014 thinking never even engaged. A level now enables thinking and selects the effort.\n- **No control markup in Muse answers.** A recipient marker that reached the visible answer on a malformed or truncated stream is now scrubbed from what you see, while reasoning text and tool-call bodies are left byte-for-byte intact.\n\n### Carried forward from 1.6.26\n\nHealth polling no longer stalls generation on any model family, and DeepSeek V4 Flash holds smooth long-context decode \u2014 measured this cycle at **35 tok/s** short-context and **32.6 tok/s with 431 tok/s prefill** at 3k context, with cross-turn reuse verified exact.\n\nSeparate signed and Apple-notarized Apple-silicon downloads are available for macOS Tahoe and Sequoia-compatible systems. Tahoe is the default download.\n"
 }
