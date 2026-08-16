@@ -1,19 +1,19 @@
 {
-  "version": "1.6.31",
-  "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.31/vMLX-1.6.31-tahoe-arm64.dmg",
-  "sha256": "4cbb9a42d951e47f6a3dea9034b320f8c19f01ac34a69e84d85e4b33276a5613",
-  "sha512": "dBwng/242VBJA6MS3EU+N0SDw7m5WFqpoJrVrTe/p67IIpQk65JHTw8n5YZNTeybiIE0ICHmM8TajGFprsTrfg==",
+  "version": "1.6.32",
+  "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.32/vMLX-1.6.32-tahoe-arm64.dmg",
+  "sha256": "8462c8066b62007c1e84066f4f590d98166098f5465f76c4c715d323859123b9",
+  "sha512": "BOR9IO1FQmpaflwDciqGhTGwxe0SNdG9n20WXr0DKjqMyhEev/+vw6kbeZl5fclPbH5DsA5Q+chZAne6YcK4WA==",
   "downloads": {
     "sequoia": {
-      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.31/vMLX-1.6.31-sequoia-arm64.dmg",
-      "sha256": "6cc4d9a2d62fcd8909b100a9259b7dfc9fb4fba59d893b146069d7269cb43df2",
-      "sha512": "L+80TjAJuF+GaRhpElGpNbQkguPAd8s8aWGSPqUbajwbelJ/vSGVxZjIeBVnJVPHPU/JcvIHdA29+GWHTklT6g=="
+      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.32/vMLX-1.6.32-sequoia-arm64.dmg",
+      "sha256": "e7edd97c3e146ebde1d09e9e78fb91c8e637a966e8250bfa8379d355d0e14b24",
+      "sha512": "qDvo56p85HVvz7uX88GbJ2RCio1L3LKJoBnwidag1LmoFXMAiIbydBGGEULQd61M5325cTzHOUPdMHhBAw5XKQ=="
     },
     "tahoe": {
-      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.31/vMLX-1.6.31-tahoe-arm64.dmg",
-      "sha256": "4cbb9a42d951e47f6a3dea9034b320f8c19f01ac34a69e84d85e4b33276a5613",
-      "sha512": "dBwng/242VBJA6MS3EU+N0SDw7m5WFqpoJrVrTe/p67IIpQk65JHTw8n5YZNTeybiIE0ICHmM8TajGFprsTrfg=="
+      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.32/vMLX-1.6.32-tahoe-arm64.dmg",
+      "sha256": "8462c8066b62007c1e84066f4f590d98166098f5465f76c4c715d323859123b9",
+      "sha512": "BOR9IO1FQmpaflwDciqGhTGwxe0SNdG9n20WXr0DKjqMyhEev/+vw6kbeZl5fclPbH5DsA5Q+chZAne6YcK4WA=="
     }
   },
-  "notes": "vMLX 1.6.31: tool-calling reliability follow-up \u2014 malformed native tool calls are repaired on the parser routes shipping bundles actually use, families without a thinking-off mode no longer reject requests under a global thinking default, Responses chains and parallel tool-call replays are consistent across continuation modes, and Ollama tool results keep their identity."
+  "notes": "vMLX 1.6.32 \u2014 long-context serving hardened end to end. Deep hybrid conversations that previously crashed the engine now get a clean refusal with a working recovery: restart the model and the conversation restores from the disk cache (proven live past 100k tokens). Byte-exact cache answers verified across RAM, RAM+SSD, and SSD-only tiers for the Qwen, Laguna, Gemma 4, Muse Glimmer, and Step-3.7 lines; Muse reasoning-strength levels and multi-tool-call turns proven; MTP settings and all server settings persist across restart, sleep/wake, and app relaunch. Fixes: native-MTP text models no longer wedge after the cold-prefill-split change; admission declines are proper 413s on every API door; oversized deep-conversation cache payloads are no longer permanently unwritable; clearer in-app errors for deep-conversation refusals and port conflicts."
 }
