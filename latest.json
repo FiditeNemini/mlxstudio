@@ -1,19 +1,19 @@
 {
-  "version": "1.6.32",
-  "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.32/vMLX-1.6.32-tahoe-arm64.dmg",
-  "sha256": "8462c8066b62007c1e84066f4f590d98166098f5465f76c4c715d323859123b9",
-  "sha512": "BOR9IO1FQmpaflwDciqGhTGwxe0SNdG9n20WXr0DKjqMyhEev/+vw6kbeZl5fclPbH5DsA5Q+chZAne6YcK4WA==",
+  "version": "1.6.33",
+  "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.33/vMLX-1.6.33-tahoe-arm64.dmg",
+  "sha256": "3bcfdcc94b0297fe35a04c3212e86ea12a84e86ca9aac7f72d4c24bbb5777856",
+  "sha512": "j87hMMydB7mK3Td/QP1e8UBVEH6VT7HC5T0Gx1oJSlZuL/vYflmJIn2hd21+yiSRcXZU4g9bNdNzuUZpOaAuxg==",
   "downloads": {
     "sequoia": {
-      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.32/vMLX-1.6.32-sequoia-arm64.dmg",
-      "sha256": "e7edd97c3e146ebde1d09e9e78fb91c8e637a966e8250bfa8379d355d0e14b24",
-      "sha512": "qDvo56p85HVvz7uX88GbJ2RCio1L3LKJoBnwidag1LmoFXMAiIbydBGGEULQd61M5325cTzHOUPdMHhBAw5XKQ=="
+      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.33/vMLX-1.6.33-sequoia-arm64.dmg",
+      "sha256": "4c1e58a2b45d3568bb73746434c91648d32fd2957e1d07c346bcceecf92e484d",
+      "sha512": "0RYUOVeIS6yrtMbwWEBXznBIOS35ZShJdoi8GYwBRIc7nyzAtuD9AldPRd1RT3ypjby46iayBm0McFlav52lvg=="
     },
     "tahoe": {
-      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.32/vMLX-1.6.32-tahoe-arm64.dmg",
-      "sha256": "8462c8066b62007c1e84066f4f590d98166098f5465f76c4c715d323859123b9",
-      "sha512": "BOR9IO1FQmpaflwDciqGhTGwxe0SNdG9n20WXr0DKjqMyhEev/+vw6kbeZl5fclPbH5DsA5Q+chZAne6YcK4WA=="
+      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.33/vMLX-1.6.33-tahoe-arm64.dmg",
+      "sha256": "3bcfdcc94b0297fe35a04c3212e86ea12a84e86ca9aac7f72d4c24bbb5777856",
+      "sha512": "j87hMMydB7mK3Td/QP1e8UBVEH6VT7HC5T0Gx1oJSlZuL/vYflmJIn2hd21+yiSRcXZU4g9bNdNzuUZpOaAuxg=="
     }
   },
-  "notes": "vMLX 1.6.32 \u2014 long-context serving hardened end to end. Deep hybrid conversations that previously crashed the engine now get a clean refusal with a working recovery: restart the model and the conversation restores from the disk cache (proven live past 100k tokens). Byte-exact cache answers verified across RAM, RAM+SSD, and SSD-only tiers for the Qwen, Laguna, Gemma 4, Muse Glimmer, and Step-3.7 lines; Muse reasoning-strength levels and multi-tool-call turns proven; MTP settings and all server settings persist across restart, sleep/wake, and app relaunch. Fixes: native-MTP text models no longer wedge after the cold-prefill-split change; admission declines are proper 413s on every API door; oversized deep-conversation cache payloads are no longer permanently unwritable; clearer in-app errors for deep-conversation refusals and port conflicts."
+  "notes": "vMLX 1.6.33 \u2014 Sessions no longer show a stale red Error badge, or a stale model name, on models that load perfectly well: session runtime status is reconciled at startup so state left behind by a previous run or a crash can never be presented as current. MCP is pinned to the SDK actually shipped in the bundle. The native-MTP control is now driven by the engine's own capability report instead of the bundle name, so families that support MTP render the control and families that do not render nothing. A run that returns only the never-empty notice is now treated as producing no answer rather than passing silently. Plus a batch of release-gate correctness fixes. Both DMGs are Developer ID signed, notarized by Apple, and stapled."
 }
