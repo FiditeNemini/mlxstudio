@@ -1,19 +1,19 @@
 {
-  "version": "1.6.33",
-  "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.33/vMLX-1.6.33-tahoe-arm64.dmg",
-  "sha256": "3bcfdcc94b0297fe35a04c3212e86ea12a84e86ca9aac7f72d4c24bbb5777856",
-  "sha512": "j87hMMydB7mK3Td/QP1e8UBVEH6VT7HC5T0Gx1oJSlZuL/vYflmJIn2hd21+yiSRcXZU4g9bNdNzuUZpOaAuxg==",
+  "version": "1.6.34",
+  "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.34/vMLX-1.6.34-tahoe-arm64.dmg",
+  "sha256": "1d69fef91fe14d9d8bdae68a211323ab44bc354edb2c588e3212b0bacf970997",
+  "sha512": "/MDjqd32dHWkYZCRk4W9KIxQ82spmbffrR5hcg5VSXKb0NHnICHYMkUeWrRlsvbSEhMPkqqKUtKkh3OjyGFjyQ==",
   "downloads": {
     "sequoia": {
-      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.33/vMLX-1.6.33-sequoia-arm64.dmg",
-      "sha256": "4c1e58a2b45d3568bb73746434c91648d32fd2957e1d07c346bcceecf92e484d",
-      "sha512": "0RYUOVeIS6yrtMbwWEBXznBIOS35ZShJdoi8GYwBRIc7nyzAtuD9AldPRd1RT3ypjby46iayBm0McFlav52lvg=="
+      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.34/vMLX-1.6.34-sequoia-arm64.dmg",
+      "sha256": "0a43175c9e03d7e2ce382fd58b4fe1e54662cb7cbb63b7b6f73b640bcb6c064e",
+      "sha512": "TC4YOm8l7mVo5I1PwTn+gbExLbqjgZOFuq4RpIaDwouO2tVzuv2cwZUSLWitFVnhq+TMAmDxhpqCuSgbVxyhaQ=="
     },
     "tahoe": {
-      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.33/vMLX-1.6.33-tahoe-arm64.dmg",
-      "sha256": "3bcfdcc94b0297fe35a04c3212e86ea12a84e86ca9aac7f72d4c24bbb5777856",
-      "sha512": "j87hMMydB7mK3Td/QP1e8UBVEH6VT7HC5T0Gx1oJSlZuL/vYflmJIn2hd21+yiSRcXZU4g9bNdNzuUZpOaAuxg=="
+      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.34/vMLX-1.6.34-tahoe-arm64.dmg",
+      "sha256": "1d69fef91fe14d9d8bdae68a211323ab44bc354edb2c588e3212b0bacf970997",
+      "sha512": "/MDjqd32dHWkYZCRk4W9KIxQ82spmbffrR5hcg5VSXKb0NHnICHYMkUeWrRlsvbSEhMPkqqKUtKkh3OjyGFjyQ=="
     }
   },
-  "notes": "vMLX 1.6.33 \u2014 Sessions no longer show a stale red Error badge, or a stale model name, on models that load perfectly well: session runtime status is reconciled at startup so state left behind by a previous run or a crash can never be presented as current. MCP is pinned to the SDK actually shipped in the bundle. The native-MTP control is now driven by the engine's own capability report instead of the bundle name, so families that support MTP render the control and families that do not render nothing. A run that returns only the never-empty notice is now treated as producing no answer rather than passing silently. Plus a batch of release-gate correctness fixes. Both DMGs are Developer ID signed, notarized by Apple, and stapled."
+  "notes": "vMLX 1.6.34 — Major stability release: fixed a store-path memory explosion that could silently kill the engine minutes after a long-context turn (and, with a raised GPU wired limit, wedge the whole machine). Native MTP now actually engages by default and runs 38-48 t/s warm on Qwen3.8-27B; DFlash2 speculative decoding sustains 60+ t/s with multiturn prefix reuse (~20x faster warm TTFT). Qwen-family video input works. dots3-note deep-context conversations verified to 42-56k tokens, with a clear wired-limit advisory when the OS ceiling is reached. Removed the RAM preflight that refused large model loads. Stream interval defaults to 8 so long conversations can no longer stall the engine from the renderer. Both DMGs are Developer ID signed, notarized by Apple, and stapled."
 }
