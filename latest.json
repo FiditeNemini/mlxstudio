@@ -1,19 +1,19 @@
 {
-  "version": "1.6.34",
-  "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.34/vMLX-1.6.34-tahoe-arm64.dmg",
-  "sha256": "1d69fef91fe14d9d8bdae68a211323ab44bc354edb2c588e3212b0bacf970997",
-  "sha512": "/MDjqd32dHWkYZCRk4W9KIxQ82spmbffrR5hcg5VSXKb0NHnICHYMkUeWrRlsvbSEhMPkqqKUtKkh3OjyGFjyQ==",
+  "version": "1.6.35",
+  "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.35/vMLX-1.6.35-tahoe-arm64.dmg",
+  "sha256": "19bfcc69df6d4a20cc38eb36de05678f4892ad8d965c0cd0d24a0f5958c94fc7",
+  "sha512": "aVZDImu5AOw7M1e+TsRfTKaUFFXN0MQZ32rM/Wx8XGZieRTABj/AODNaFiwiAgW9dNr2mDKRZWTrhnzStxjBKg==",
   "downloads": {
     "sequoia": {
-      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.34/vMLX-1.6.34-sequoia-arm64.dmg",
-      "sha256": "0a43175c9e03d7e2ce382fd58b4fe1e54662cb7cbb63b7b6f73b640bcb6c064e",
-      "sha512": "TC4YOm8l7mVo5I1PwTn+gbExLbqjgZOFuq4RpIaDwouO2tVzuv2cwZUSLWitFVnhq+TMAmDxhpqCuSgbVxyhaQ=="
+      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.35/vMLX-1.6.35-sequoia-arm64.dmg",
+      "sha256": "62e7d80eed450c27c192876699f3e48bce34d210ef4f2d292308a18f6309f53e",
+      "sha512": "HEgNlMnX1rMNS7zvJG9vmlHormzV6aXAxYIF/GDWYDlb7o3kAdPYgejKOsAW4a50Pi7Zpe8PizalozxVuhb1hg=="
     },
     "tahoe": {
-      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.34/vMLX-1.6.34-tahoe-arm64.dmg",
-      "sha256": "1d69fef91fe14d9d8bdae68a211323ab44bc354edb2c588e3212b0bacf970997",
-      "sha512": "/MDjqd32dHWkYZCRk4W9KIxQ82spmbffrR5hcg5VSXKb0NHnICHYMkUeWrRlsvbSEhMPkqqKUtKkh3OjyGFjyQ=="
+      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.35/vMLX-1.6.35-tahoe-arm64.dmg",
+      "sha256": "19bfcc69df6d4a20cc38eb36de05678f4892ad8d965c0cd0d24a0f5958c94fc7",
+      "sha512": "aVZDImu5AOw7M1e+TsRfTKaUFFXN0MQZ32rM/Wx8XGZieRTABj/AODNaFiwiAgW9dNr2mDKRZWTrhnzStxjBKg=="
     }
   },
-  "notes": "vMLX 1.6.34 — Major stability release: fixed a store-path memory explosion that could silently kill the engine minutes after a long-context turn (and, with a raised GPU wired limit, wedge the whole machine). Native MTP now actually engages by default and runs 38-48 t/s warm on Qwen3.8-27B; DFlash2 speculative decoding sustains 60+ t/s with multiturn prefix reuse (~20x faster warm TTFT). Qwen-family video input works. dots3-note deep-context conversations verified to 42-56k tokens, with a clear wired-limit advisory when the OS ceiling is reached. Removed the RAM preflight that refused large model loads. Stream interval defaults to 8 so long conversations can no longer stall the engine from the renderer. Both DMGs are Developer ID signed, notarized by Apple, and stapled."
+  "notes": "vMLX 1.6.35 \u2014 SSD-first prompt cache. The in-memory paged cache is now OFF by default and prompts are cached on your SSD, so memory use stays close to the model's own size (dots3-note peaked +3.0 GB over its 95 GB bundle at 48k tokens, with no idle drift). Turning the RAM tier back on buys about 2% on time-to-first-token and costs noticeably more memory; Session Settings now says so and points at the setting. The SSD budget is a percent of your disk (10% by default) instead of a flat gigabyte number, shared across every cache type and model, evicting the oldest prompts first. Stored prefix caches are full precision for every family. Fixes a case where the cache could be handed the entire disk while the interface reported a 10% cap, a DeepSeek-V4-Flash start failure on the new default, sessions whose model family was not recognised never receiving the new defaults, and a cache panel that reported success when the engine had declined to clear a tier still in use. Prompt caches survive a hard kill and restart across five cache architectures with 47 deterministic prompts byte-identical afterwards, image turns included. Both DMGs are Developer ID signed, notarized by Apple, and stapled."
 }
