@@ -1,19 +1,19 @@
 {
-  "version": "1.6.35",
-  "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.35/vMLX-1.6.35-tahoe-arm64.dmg",
-  "sha256": "19bfcc69df6d4a20cc38eb36de05678f4892ad8d965c0cd0d24a0f5958c94fc7",
-  "sha512": "aVZDImu5AOw7M1e+TsRfTKaUFFXN0MQZ32rM/Wx8XGZieRTABj/AODNaFiwiAgW9dNr2mDKRZWTrhnzStxjBKg==",
+  "version": "1.6.36",
+  "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.36/vMLX-1.6.36-tahoe-arm64.dmg",
+  "sha256": "b7cc2d47a12d60798006c4b0015bbb3fd8c276a63db553da197977dad3fdc05f",
+  "sha512": "OCryEQlWB1uTy/IgkzDrZCOMTT19WkdwIapuYP04gHT/vsYgxv2JNJnOcKuZYFoMsAcYjskOzQ9HqmXamEdQEw==",
   "downloads": {
     "sequoia": {
-      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.35/vMLX-1.6.35-sequoia-arm64.dmg",
-      "sha256": "62e7d80eed450c27c192876699f3e48bce34d210ef4f2d292308a18f6309f53e",
-      "sha512": "HEgNlMnX1rMNS7zvJG9vmlHormzV6aXAxYIF/GDWYDlb7o3kAdPYgejKOsAW4a50Pi7Zpe8PizalozxVuhb1hg=="
+      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.36/vMLX-1.6.36-sequoia-arm64.dmg",
+      "sha256": "90fed0a5ab0f5e57eeff419256f542e8f6444589ea2eec33438f08def4756693",
+      "sha512": "ixWLOLJlZ1R6pDSF1nJNyGaQ9qd5qVR5VdZreIe3eo4qzeslDV88Om0fDRqSIkrmOB/QLc2wR/ZIXPZU3EthKg=="
     },
     "tahoe": {
-      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.35/vMLX-1.6.35-tahoe-arm64.dmg",
-      "sha256": "19bfcc69df6d4a20cc38eb36de05678f4892ad8d965c0cd0d24a0f5958c94fc7",
-      "sha512": "aVZDImu5AOw7M1e+TsRfTKaUFFXN0MQZ32rM/Wx8XGZieRTABj/AODNaFiwiAgW9dNr2mDKRZWTrhnzStxjBKg=="
+      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.36/vMLX-1.6.36-tahoe-arm64.dmg",
+      "sha256": "b7cc2d47a12d60798006c4b0015bbb3fd8c276a63db553da197977dad3fdc05f",
+      "sha512": "OCryEQlWB1uTy/IgkzDrZCOMTT19WkdwIapuYP04gHT/vsYgxv2JNJnOcKuZYFoMsAcYjskOzQ9HqmXamEdQEw=="
     }
   },
-  "notes": "vMLX 1.6.35 \u2014 SSD-first prompt cache. The in-memory paged cache is now OFF by default and prompts are cached on your SSD, so memory use stays close to the model's own size (dots3-note peaked +3.0 GB over its 95 GB bundle at 48k tokens, with no idle drift). Turning the RAM tier back on buys about 2% on time-to-first-token and costs noticeably more memory; Session Settings now says so and points at the setting. The SSD budget is a percent of your disk (10% by default) instead of a flat gigabyte number, shared across every cache type and model, evicting the oldest prompts first. Stored prefix caches are full precision for every family. Fixes a case where the cache could be handed the entire disk while the interface reported a 10% cap, a DeepSeek-V4-Flash start failure on the new default, sessions whose model family was not recognised never receiving the new defaults, and a cache panel that reported success when the engine had declined to clear a tier still in use. Prompt caches survive a hard kill and restart across five cache architectures with 47 deterministic prompts byte-identical afterwards, image turns included. Both DMGs are Developer ID signed, notarized by Apple, and stapled."
+  "notes": "vMLX 1.6.36 \u2014 DeepSeek V4 Flash visible-response and native SSD-cache reliability. Fixes foreground replies waiting behind cache re-key work, zero-sized native DSV4 cache anchors failing durable writes, tool-result schema loss, and multimodal/mixed-attention prefix selection. SSD blocks now stream without full-cache copies or retained writer buffers, use physical-block dedupe, and keep each model's architecture-native full-precision cache format; SSD-only app defaults keep in-RAM paged, vision, and SSM payload caches disabled. Tahoe/macOS 26 is the default; Sequoia remains available as compatibility. Both DMGs are Developer ID signed, notarized, stapled, and Gatekeeper verified."
 }
