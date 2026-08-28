@@ -1,19 +1,19 @@
 {
   "version": "1.6.44",
   "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.44/vMLX-1.6.44-tahoe-arm64.dmg",
-  "sha256": "ea165e5e9c0d7f98e7346c93fe8ed88c6a424e85fa895bf77c02c9feba560535",
-  "sha512": "l077USRNL5wIhVYp3tte4ln5ftV8EI3w58OZZ0iI0TE5I+aG3WzFqrPpZKDvO9S0vybr/ihsSlqrpM/96Ic2AA==",
+  "sha256": "e710629d6952cda170a597ea848d1808b65dea16f90ba417be35cb1ec4a3673d",
+  "sha512": "70hZrd5YQVLztEUZ+VmtSRVIGKUEAfpkesGkdkQbZrk//tR/1AS6Gh/tZR50HCmiWjfEbnpxuLXmLLPCiUumgQ==",
   "downloads": {
     "sequoia": {
       "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.44/vMLX-1.6.44-sequoia-arm64.dmg",
-      "sha256": "66c6afb09c377c629a7d06b97742cbdbf22bdd77c0ebf8eb8f396ed914ae4885",
-      "sha512": "XWSHx7AUOeYbnKoyRxZYXV14XC0v1usXk+pRr5JtrxjeJZyokOiJCGMTSfxxrrSz7uDd0deVZ2uUfDO2v8iw8w=="
+      "sha256": "69ef9a129a60bcb7c990235f30e3618535ba9714ff39144ef87ffc9d36745ca6",
+      "sha512": "Im/meBtB93QrgIVLS4r2WawDXUCPNjCKxeHL0xsduHykJL00t8NyBo90qqz0OQrysikGKLoupBS45/6N96abvw=="
     },
     "tahoe": {
       "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.44/vMLX-1.6.44-tahoe-arm64.dmg",
-      "sha256": "ea165e5e9c0d7f98e7346c93fe8ed88c6a424e85fa895bf77c02c9feba560535",
-      "sha512": "l077USRNL5wIhVYp3tte4ln5ftV8EI3w58OZZ0iI0TE5I+aG3WzFqrPpZKDvO9S0vybr/ihsSlqrpM/96Ic2AA=="
+      "sha256": "e710629d6952cda170a597ea848d1808b65dea16f90ba417be35cb1ec4a3673d",
+      "sha512": "70hZrd5YQVLztEUZ+VmtSRVIGKUEAfpkesGkdkQbZrk//tR/1AS6Gh/tZR50HCmiWjfEbnpxuLXmLLPCiUumgQ=="
     }
   },
-  "notes": "vMLX 1.6.44 \u2014 reports deep-sleep JIT wake time in Ollama latency fields, repairs the vendored Qwen 3.5 runtime overlay against upstream-first imports, hardens family detection against partial JANG sidecars, speeds Qwen4 PLE SSD reads with page-aligned lookups, keeps long DeepSeek V4 prefills alive past Electron inactivity timeouts, and patches six production npm dependencies. Tahoe/macOS 26 is the default; Sequoia remains available as compatibility. Both DMGs contain vMLX 1.6.44, MLX 0.32.2, and pinned JANG 2.5.46, are Developer ID signed, independently notarized, stapled, Gatekeeper verified, and mounted-artifact verified."
+  "notes": "vMLX 1.6.44 \u2014 makes an explicit session Stop cancel any queued start so no untracked engine can spawn after stopping, reports deep-sleep JIT wake time in Ollama latency fields, repairs the vendored Qwen 3.5 runtime overlay against upstream-first imports, hardens family detection against partial JANG sidecars, speeds Qwen4 PLE SSD reads with page-aligned lookups, keeps long DeepSeek V4 prefills alive past Electron inactivity timeouts, and patches six production npm dependencies. Tahoe/macOS 26 is the default; Sequoia remains available as compatibility. Both DMGs contain vMLX 1.6.44, MLX 0.32.2, and pinned JANG 2.5.46, are Developer ID signed, independently notarized, stapled, Gatekeeper verified, and mounted-artifact verified."
 }
