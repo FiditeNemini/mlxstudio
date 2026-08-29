@@ -1,19 +1,19 @@
 {
-  "version": "1.6.44",
-  "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.44/vMLX-1.6.44-tahoe-arm64.dmg",
-  "sha256": "e710629d6952cda170a597ea848d1808b65dea16f90ba417be35cb1ec4a3673d",
-  "sha512": "70hZrd5YQVLztEUZ+VmtSRVIGKUEAfpkesGkdkQbZrk//tR/1AS6Gh/tZR50HCmiWjfEbnpxuLXmLLPCiUumgQ==",
+  "version": "1.6.45",
+  "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.45/vMLX-1.6.45-tahoe-arm64.dmg",
+  "sha256": "1d3530319496d5eaf30390e7a627cd482652f56bc537568f572d2deafdd063a6",
+  "sha512": "RF6ptWacD/+Lb4L4CqkUbJmsXFX2O+PhB9uu3EPEyX8a0UP3GLnyfpmvnnz1VOd91SkERvgpiuYjsrsXetwV5g==",
   "downloads": {
     "sequoia": {
-      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.44/vMLX-1.6.44-sequoia-arm64.dmg",
-      "sha256": "69ef9a129a60bcb7c990235f30e3618535ba9714ff39144ef87ffc9d36745ca6",
-      "sha512": "Im/meBtB93QrgIVLS4r2WawDXUCPNjCKxeHL0xsduHykJL00t8NyBo90qqz0OQrysikGKLoupBS45/6N96abvw=="
+      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.45/vMLX-1.6.45-sequoia-arm64.dmg",
+      "sha256": "8bae133999bcebbeb39383d344527eb1c469f6d05d510e6218ac7c93bac155e1",
+      "sha512": "EGnWE1BmqiQDVUgayP7lBU8zk5I7QotE2KvWS/friBQuWsIuW/m3ZamoPM5ABjHtQ/5GGA42Z9Nhm/Y3812hRA=="
     },
     "tahoe": {
-      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.44/vMLX-1.6.44-tahoe-arm64.dmg",
-      "sha256": "e710629d6952cda170a597ea848d1808b65dea16f90ba417be35cb1ec4a3673d",
-      "sha512": "70hZrd5YQVLztEUZ+VmtSRVIGKUEAfpkesGkdkQbZrk//tR/1AS6Gh/tZR50HCmiWjfEbnpxuLXmLLPCiUumgQ=="
+      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.6.45/vMLX-1.6.45-tahoe-arm64.dmg",
+      "sha256": "1d3530319496d5eaf30390e7a627cd482652f56bc537568f572d2deafdd063a6",
+      "sha512": "RF6ptWacD/+Lb4L4CqkUbJmsXFX2O+PhB9uu3EPEyX8a0UP3GLnyfpmvnnz1VOd91SkERvgpiuYjsrsXetwV5g=="
     }
   },
-  "notes": "vMLX 1.6.44 \u2014 makes an explicit session Stop cancel any queued start so no untracked engine can spawn after stopping, reports deep-sleep JIT wake time in Ollama latency fields, repairs the vendored Qwen 3.5 runtime overlay against upstream-first imports, hardens family detection against partial JANG sidecars, speeds Qwen4 PLE SSD reads with page-aligned lookups, keeps long DeepSeek V4 prefills alive past Electron inactivity timeouts, and patches six production npm dependencies. Tahoe/macOS 26 is the default; Sequoia remains available as compatibility. Both DMGs contain vMLX 1.6.44, MLX 0.32.2, and pinned JANG 2.5.46, are Developer ID signed, independently notarized, stapled, Gatekeeper verified, and mounted-artifact verified."
+  "notes": "vMLX 1.6.45 — fixes Qwen3.8 Flash Next tool calling (stale hermes parser stamps neutralized in the engine, the app launcher, and previously saved sessions, so required tool calls parse the bundle's real Qwen XML dialect), repairs the Adaptive native-MTP depth policy (no more hidden depth-1 pin; adaptive now starts at plain AR and engages MTP only from measured evidence — 72.8 tok/s vs 40.5 AR on Flash-Next 4M, 42.2 vs 27.2 on Qwen3.8-27B, with faster cold first turns), honors reasoning_effort/enable_thinking on /v1/completions, adds server-exact prefix-cache fetch provenance and engine-owned load-progress reporting, and fixes a doctor false-negative on native-MTP VL bundles. Tahoe/macOS 26 is the default; Sequoia remains available as compatibility. Both DMGs contain vMLX 1.6.45 with pinned JANG 2.5.47, are Developer ID signed, independently notarized, stapled, and Gatekeeper verified."
 }
